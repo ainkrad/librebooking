@@ -60,11 +60,13 @@ class GuestReservationPage extends NewReservationPage implements IGuestReservati
         }
 
         return 'Reservation/collect-guest.tpl';
+        
     }
 
     public function GuestInformationCollected()
     {
         return !ServiceLocator::GetServer()->GetUserSession()->IsGuest();
+        // return true;
     }
 
     public function GetEmail()

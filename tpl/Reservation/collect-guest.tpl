@@ -15,7 +15,8 @@
 				<div class="mb-3">
 					<div class="form-group">
 						<label class="reg fw-bold" for="email">{translate key="Email"}</label>
-						{textbox type="email" name="EMAIL" class="input" value="Email" required="required"}
+						{textbox type="email" name="EMAIL" class="input" value="Email"}
+						{* {textbox type="email" name="EMAIL" class="input" value="Email" required="required"} *}
 					</div>
 				</div>
 

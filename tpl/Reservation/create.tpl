@@ -317,7 +317,7 @@
                 </div>
             </div>
 
-            <div id="custom-attributes-placeholder"></div>
+            {* <div id="custom-attributes-placeholder"></div> *}
 
             {if $UploadsEnabled}
             <div class="border-bottom py-2">

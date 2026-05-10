@@ -71,7 +71,9 @@
                                 <input type="hidden" {formname key=RESUME} value="{$ResumeUrl}" />
                             </div>
                         {/if}
-
+                            <div class="navbar-nav navbar-right">
+        <a href="/view-schedule.php" class="btn btn-primary btn-lg">Reserve as Guest</a>
+    </div>
                         <div class="clearfix">
                             {if $ShowUsernamePrompt &&  $ShowPasswordPrompt}
                                 <div class="float-start">
@@ -127,6 +129,7 @@
                         {/if}
                     </div>
                 </div>
+
                 <div id="login-footer" class="card-footer d-flex align-items-start justify-content-between">
                     {if $ShowForgotPasswordPrompt}
                         <div id="forgot-password">

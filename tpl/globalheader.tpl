@@ -149,7 +149,7 @@
                                             href="{$Path}{Pages::PROFILE}">{translate key="Profile"}</a></li>
                                     <li id="navPassword"><a class="dropdown-item"
                                             href="{$Path}{Pages::PASSWORD}">{translate key="ChangePassword"}</a></li>
-                                    <li id="navNotification">
+                                    {* <li id="navNotification">
                                         <a class="dropdown-item"
                                             href="{$Path}{Pages::NOTIFICATION_PREFERENCES}">{translate key="NotificationPreferences"}</a>
                                     </li>
@@ -163,7 +163,7 @@
                                         <li id="navUserCredits">
                                             <a class="dropdown-item" href="{$Path}{Pages::CREDITS}">{translate key="Credits"}</a>
                                         </li>
-                                    {/if}
+                                    {/if} *}
                                 </ul>
                             </li>
                             <li class="nav-item dropdown" id="navScheduleDropdown">
@@ -182,14 +182,14 @@
                                             href="{$Path}{Pages::CALENDAR}">{translate key="ResourceCalendar"}</a></li>
                                     <!--<li class="menuitem"><a href="#">{translate key="Current Status"}</a></li>-->
                                     <li>
-                                        <hr class="dropdown-divider">
+                                        {* <hr class="dropdown-divider"> *}
                                     </li>
-                                    <li id="navFindATime"><a class="dropdown-item"
+                                    {* <li id="navFindATime"><a class="dropdown-item"
                                             href="{$Path}{Pages::OPENINGS}">{translate key="FindATime"}</a>
                                     </li>
                                     <li id="navFindATime"><a class="dropdown-item"
                                             href="{$Path}{Pages::SEARCH_RESERVATIONS}">{translate key="SearchReservations"}</a>
-                                    </li>
+                                    </li> *}
                                 </ul>
                             </li>
                             <li class="nav-item dropdown" id="navReportsDropdown">
@@ -212,12 +212,12 @@
                                         <li id="navManageReservations"><a class="dropdown-item"
                                                 href="{$Path}admin/manage_reservations.php">{translate key="ManageReservations"}</a>
                                         </li>
-                                        <li id="navManageBlackouts"><a class="dropdown-item"
+                                        {* <li id="navManageBlackouts"><a class="dropdown-item"
                                                 href="{$Path}admin/manage_blackouts.php">{translate key="ManageBlackouts"}</a>
-                                        </li>
-                                        <li id="navManageQuotas"><a class="dropdown-item"
+                                        </li> *}
+                                        {* <li id="navManageQuotas"><a class="dropdown-item"
                                                 href="{$Path}admin/manage_quotas.php">{translate key="ManageQuotas"}</a>
-                                        </li>
+                                        </li> *}
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -240,18 +240,18 @@
                                                 href="{$Path}admin/manage_groups.php">{translate key="ManageGroups"}</a>
                                         </li>
 
-                                        <li id="navManageAnnouncements"><a class="dropdown-item"
+                                        {* <li id="navManageAnnouncements"><a class="dropdown-item"
                                                 href="{$Path}admin/manage_announcements.php">{translate key="ManageAnnouncements"}</a>
-                                        </li>
+                                        </li> *}
                                         <li class="divider"></li>
                                         {if isset($PaymentsEnabled) && $PaymentsEnabled}
                                             <li id="navManagePayments"><a class="dropdown-item"
                                                     href="{$Path}admin/manage_payments.php">{translate key="ManagePayments"}</a>
                                             </li>
                                         {/if}
-                                        <li id="navManageAttributes"><a class="dropdown-item"
+                                        {* <li id="navManageAttributes"><a class="dropdown-item"
                                                 href="{$Path}admin/manage_attributes.php">{translate key="CustomAttributes"}</a>
-                                        </li>
+                                        </li> *}
                                     </ul>
                                 </li>
                             {/if}
@@ -404,7 +404,7 @@
                                 </ul>
                             </li>
                         {/if}
-                        <li class="nav-item dropdown" id="navHelpDropdown">
+                        {* <li class="nav-item dropdown" id="navHelpDropdown">
                             <a href="#" class="nav-link link-primary dropdown-toggle" role="button"
                                 data-bs-toggle="dropdown">{translate key="Help"}</a>
                             <ul class="dropdown-menu  dropdown-menu-end">
@@ -419,7 +419,7 @@
                                 <li id="navAbout"><a class="dropdown-item"
                                         href="{$Path}help.php?ht=about">{translate key=About}</a></li>
                             </ul>
-                        </li>
+                        </li> *}
                         {if isset($LoggedIn) && $LoggedIn}
                             <li class="nav-item" id="navSignOut"><a class="nav-link link-primary"
                                     href="{$Path}logout.php">{translate key="SignOut"}</a></li>

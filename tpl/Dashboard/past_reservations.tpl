@@ -1,4 +1,4 @@
-<div class="dashboard upcomingReservationsDashboard  accordion-item shadow mb-2" id="upcomingReservationsDashboard">
+{* <div class="dashboard upcomingReservationsDashboard  accordion-item shadow mb-2" id="upcomingReservationsDashboard">
 	<div class="accordion-header dashboardHeader">
 		<button class="accordion-button collapsed link-primary fw-bold" type="button" data-bs-toggle="collapse"
 			data-bs-target="#dashboardContents" aria-expanded="false" aria-controls="dashboardContents">
@@ -45,11 +45,11 @@
 		<form id="form-checkin" method="post">
 			<input type="hidden" id="referenceNumber" {formname key=REFERENCE_NUMBER} />
 			{csrf_token}
-		</form>
+		</form> *}
 
 		{*<form id="form-checkout" method="post" action="ajax/reservation_checkin.php?action={ReservationAction::Checkout}">*}
 		{*<input type="hidden" id="referenceNumber" {formname key=REFERENCE_NUMBER} />*}
 		{*{csrf_token}*}
 		{*</form>*}
-	</div>
-</div>
+	{* </div>
+</div> *}

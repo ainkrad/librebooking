@@ -96,8 +96,8 @@ class en_us extends Language
         $strings['UnknownError'] = 'Unknown Error';
         $strings['DatabaseConnectionError'] = 'Unable to connect to the database server.<br/>Ask the website administrator to verify the database host, username, and password in <code>config/config.php</code>.';
         $strings['DatabaseNotFoundError'] = 'Unable to select the configured database.<br/>Ask the website administrator to verify the database name in <code>config/config.php</code> and confirm the database has been created/initialized.';
-        $strings['InsufficientPermissionsError'] = 'You do not have permission to access this court';
-        $strings['MissingReservationResourceError'] = 'A court was not selected';
+        $strings['InsufficientPermissionsError'] = 'You do not have permission to access this resource';
+        $strings['MissingReservationResourceError'] = 'A resource was not selected';
         $strings['MissingReservationScheduleError'] = 'A schedule was not selected';
         $strings['DoesNotRepeat'] = 'Does Not Repeat';
         $strings['Daily'] = 'Daily';
@@ -136,7 +136,7 @@ class en_us extends Language
         $strings['SignOut'] = 'Sign Out';
         $strings['JavascriptRequired'] = 'This application requires JavaScript to function properly. Please enable JavaScript in your browser settings.';
         $strings['LayoutDescription'] = 'Starts on %s, showing %s days at a time';
-        $strings['AllResources'] = 'All Courts';
+        $strings['AllResources'] = 'All Resources';
         $strings['TakeOffline'] = 'Take Offline';
         $strings['BringOnline'] = 'Bring Online';
         $strings['AddImage'] = 'Add Image';
@@ -174,11 +174,11 @@ class en_us extends Language
         $strings['ResourceBufferTimeNone'] = 'There is no buffer between reservations';
         $strings['ResourceAllowMultiDay'] = 'Reservations can be made across days';
         $strings['ResourceNotAllowMultiDay'] = 'Reservations cannot be made across days';
-        $strings['ResourceCapacity'] = 'This court has a capacity of %s people';
-        $strings['ResourceCapacityNone'] = 'This court has unlimited capacity';
-        $strings['AddNewResource'] = 'Add New Court';
+        $strings['ResourceCapacity'] = 'This resource has a capacity of %s people';
+        $strings['ResourceCapacityNone'] = 'This resource has unlimited capacity';
+        $strings['AddNewResource'] = 'Add New Resource';
         $strings['AddNewUser'] = 'Add New User';
-        $strings['AddResource'] = 'Add Court';
+        $strings['AddResource'] = 'Add Resource';
         $strings['Capacity'] = 'Capacity';
         $strings['Access'] = 'Access';
         $strings['Duration'] = 'Duration';
@@ -187,7 +187,7 @@ class en_us extends Language
         $strings['ResetPassword'] = 'Reset Password';
         $strings['LastLogin'] = 'Last Login';
         $strings['Search'] = 'Search';
-        $strings['ResourcePermissions'] = 'Court Permissions';
+        $strings['ResourcePermissions'] = 'Resource Permissions';
         $strings['Reservations'] = 'Reservations';
         $strings['Groups'] = 'Groups';
         $strings['Users'] = 'Users';
@@ -222,15 +222,15 @@ class en_us extends Language
         $strings['NotSignedIn'] = 'You are not signed in';
         $strings['ReservationTitle'] = 'Title of reservation';
         $strings['ReservationDescription'] = 'Description of reservation';
-        $strings['ResourceList'] = 'Courts to be reserved';
+        $strings['ResourceList'] = 'Resources to be reserved';
         $strings['Accessories'] = 'Accessories';
         $strings['InvitationList'] = 'Invitees';
         $strings['AccessoryName'] = 'Accessory Name';
         $strings['QuantityAvailable'] = 'Quantity Available';
-        $strings['Resources'] = 'Courts';
+        $strings['Resources'] = 'Resources';
         $strings['Participants'] = 'Participants';
         $strings['User'] = 'User';
-        $strings['Resource'] = 'Court';
+        $strings['Resource'] = 'Resource';
         $strings['Status'] = 'Status';
         $strings['Approve'] = 'Approve';
         $strings['Page'] = 'Page';
@@ -276,15 +276,15 @@ class en_us extends Language
         $strings['ReservationCreated'] = 'Your reservation was successfully created!';
         $strings['ReservationUpdated'] = 'Your reservation was successfully updated!';
         $strings['ReservationRemoved'] = 'Your reservation was removed';
-        $strings['ReservationRequiresApproval'] = 'One or more of the courts reserved require approval before usage.  This reservation will be pending until it is approved.';
+        $strings['ReservationRequiresApproval'] = 'One or more of the resources reserved require approval before usage.  This reservation will be pending until it is approved.';
         $strings['YourReferenceNumber'] = 'Your reference number is %s';
         $strings['ChangeUser'] = 'Change User';
-        $strings['MoreResources'] = 'More Courts';
+        $strings['MoreResources'] = 'More Resources';
         $strings['ReservationLength'] = 'Reservation Length';
         $strings['ParticipantList'] = 'Participant List';
         $strings['AddParticipants'] = 'Add Participants';
         $strings['InviteOthers'] = 'Invite Others';
-        $strings['AddResources'] = 'Add Courts';
+        $strings['AddResources'] = 'Add Resources';
         $strings['AddAccessories'] = 'Add Accessories';
         $strings['Accessory'] = 'Accessory';
         $strings['QuantityRequested'] = 'Quantity Requested';
@@ -294,7 +294,7 @@ class en_us extends Language
         $strings['DeleteAccessoryWarning'] = 'Deleting this accessory will remove it from all reservations.';
         $strings['AddAccessory'] = 'Add Accessory';
         $strings['AddBlackout'] = 'Add Blackout';
-        $strings['AllResourcesOn'] = 'All Courts On';
+        $strings['AllResourcesOn'] = 'All Resources On';
         $strings['Reason'] = 'Reason';
         $strings['BlackoutShowMe'] = 'Show me conflicting reservations';
         $strings['BlackoutDeleteConflicts'] = 'Delete conflicting reservations';
@@ -309,7 +309,7 @@ class en_us extends Language
         $strings['ReservationConflicts'] = 'There are conflicting reservations times';
         $strings['UsersInGroup'] = 'Users in this group';
         $strings['Browse'] = 'Browse';
-        $strings['DeleteGroupWarning'] = 'Deleting this group will remove all associated court permissions.  Users in this group may lose access to courts.';
+        $strings['DeleteGroupWarning'] = 'Deleting this group will remove all associated resource permissions.  Users in this group may lose access to resources.';
         $strings['WhatRolesApplyToThisGroup'] = 'Which roles apply to this group?';
         $strings['WhoCanManageThisGroup'] = 'Who can manage this group?';
         $strings['WhoCanManageThisSchedule'] = 'Who can manage this schedule?';
@@ -319,7 +319,7 @@ class en_us extends Language
         $strings['PendingReservations'] = 'Pending Reservations';
         $strings['Approving'] = 'Approving';
         $strings['MoveToSchedule'] = 'Move to schedule';
-        $strings['DeleteResourceWarning'] = 'Deleting this court will delete all associated data, including';
+        $strings['DeleteResourceWarning'] = 'Deleting this resource will delete all associated data, including';
         $strings['DeleteResourceWarningReservations'] = 'all past, current and future reservations associated with it';
         $strings['DeleteResourceWarningPermissions'] = 'all permission assignments';
         $strings['DeleteResourceWarningReassign'] = 'Please reassign anything that you do not want to be deleted before proceeding';
@@ -339,7 +339,7 @@ class en_us extends Language
         $strings['OptionalLabel'] = 'Optional Label';
         $strings['LayoutInstructions'] = 'Enter one slot per line.  Slots must be provided for all 24 hours of the day beginning and ending at 12:00 AM.';
         $strings['AddUser'] = 'Add User';
-        $strings['UserPermissionInfo'] = 'Actual access to court may be different depending on user role, group permissions, or external permission settings';
+        $strings['UserPermissionInfo'] = 'Actual access to resource may be different depending on user role, group permissions, or external permission settings';
         $strings['DeleteUserWarning'] = 'Deleting this user will remove all of their current, future, and historical reservations.';
         $strings['AddAnnouncement'] = 'Add Announcement';
         $strings['Announcement'] = 'Announcement';
@@ -352,14 +352,14 @@ class en_us extends Language
         $strings['Past'] = 'Past';
         $strings['Restricted'] = 'Restricted';
         $strings['ViewAll'] = 'View All';
-        $strings['MoveResourcesAndReservations'] = 'Move courts and reservations to';
+        $strings['MoveResourcesAndReservations'] = 'Move resources and reservations to';
         $strings['TurnOffSubscription'] = 'Hide from public';
         $strings['TurnOnSubscription'] = 'Show to public (RSS, iCalendar, Tablet, Monitor)';
         $strings['SubscribeToCalendar'] = 'Subscribe to this Calendar';
         $strings['SubscriptionsAreDisabled'] = 'The administrator has disabled calendar subscriptions';
-        $strings['NoResourceAdministratorLabel'] = '(No Court Administrator)';
-        $strings['WhoCanManageThisResource'] = 'Who Can Manage This Court?';
-        $strings['ResourceAdministrator'] = 'Court Administrator';
+        $strings['NoResourceAdministratorLabel'] = '(No Resource Administrator)';
+        $strings['WhoCanManageThisResource'] = 'Who Can Manage This Resource?';
+        $strings['ResourceAdministrator'] = 'Resource Administrator';
         $strings['Private'] = 'Private';
         $strings['Accept'] = 'Accept';
         $strings['Decline'] = 'Decline';
@@ -418,10 +418,10 @@ class en_us extends Language
         $strings['Choose'] = 'Choose';
         $strings['All'] = 'All';
         $strings['ViewAsChart'] = 'View As Chart';
-        $strings['ReservedResources'] = 'Reserved Courts';
+        $strings['ReservedResources'] = 'Reserved Resources';
         $strings['ReservedAccessories'] = 'Reserved Accessories';
-        $strings['ResourceUsageTimeBooked'] = 'Court Usage - Time Booked';
-        $strings['ResourceUsageReservationCount'] = 'Court Usage - Reservation Count';
+        $strings['ResourceUsageTimeBooked'] = 'Resource Usage - Time Booked';
+        $strings['ResourceUsageReservationCount'] = 'Resource Usage - Reservation Count';
         $strings['Top20UsersTimeBooked'] = 'Top 20 Users - Time Booked';
         $strings['Top20UsersReservationCount'] = 'Top 20 Users - Reservation Count';
         $strings['ConfigurationUpdated'] = 'The configuration file was updated';
@@ -460,8 +460,8 @@ class en_us extends Language
         $strings['Next'] = 'Next';
         $strings['Success'] = 'Success';
         $strings['Participant'] = 'Participant';
-        $strings['ResourceFilter'] = 'Court Filter';
-        $strings['ResourceGroups'] = 'Court Groups';
+        $strings['ResourceFilter'] = 'Resource Filter';
+        $strings['ResourceGroups'] = 'Resource Groups';
         $strings['AddNewGroup'] = 'Add a new group';
         $strings['Quit'] = 'Quit';
         $strings['AddGroup'] = 'Add Group';
@@ -469,26 +469,26 @@ class en_us extends Language
         $strings['TallScheduleDisplay'] = 'Use the tall schedule display';
         $strings['WideScheduleDisplay'] = 'Use the wide schedule display';
         $strings['CondensedWeekScheduleDisplay'] = 'Use condensed week schedule display';
-        $strings['ResourceGroupHelp1'] = 'Drag and drop court groups to reorganize.';
-        $strings['ResourceGroupHelp2'] = 'Right click a court group name for additional actions.';
-        $strings['ResourceGroupHelp3'] = 'Drag and drop courts to add them to groups.';
-        $strings['ResourceGroupWarning'] = 'If using court groups, each court must be assigned to at least one group. Unassigned courts will not be able to be reserved.';
-        $strings['ResourceType'] = 'Court Type';
+        $strings['ResourceGroupHelp1'] = 'Drag and drop resource groups to reorganize.';
+        $strings['ResourceGroupHelp2'] = 'Right click a resource group name for additional actions.';
+        $strings['ResourceGroupHelp3'] = 'Drag and drop resources to add them to groups.';
+        $strings['ResourceGroupWarning'] = 'If using resource groups, each resource must be assigned to at least one group. Unassigned resources will not be able to be reserved.';
+        $strings['ResourceType'] = 'Resource Type';
         $strings['AppliesTo'] = 'Applies To';
         $strings['UniquePerInstance'] = 'Unique Per Instance';
-        $strings['AddResourceType'] = 'Add Court Type';
-        $strings['NoResourceTypeLabel'] = '(no court type set)';
+        $strings['AddResourceType'] = 'Add Resource Type';
+        $strings['NoResourceTypeLabel'] = '(no resource type set)';
         $strings['ClearFilter'] = 'Clear Filter';
         $strings['MinimumCapacity'] = 'Minimum Capacity';
         $strings['Color'] = 'Color';
         $strings['Available'] = 'Available';
         $strings['Unavailable'] = 'Unavailable';
         $strings['Hidden'] = 'Hidden';
-        $strings['ResourceStatus'] = 'Court Status';
+        $strings['ResourceStatus'] = 'Resource Status';
         $strings['CurrentStatus'] = 'Current Status';
-        $strings['AllReservationResources'] = 'All Reservation Courts';
+        $strings['AllReservationResources'] = 'All Reservation Resources';
         $strings['File'] = 'File';
-        $strings['BulkResourceUpdate'] = 'Bulk Court Update';
+        $strings['BulkResourceUpdate'] = 'Bulk Resource Update';
         $strings['Unchanged'] = 'Unchanged';
         $strings['Common'] = 'Common';
         $strings['AdminOnly'] = 'Is Admin Only';
@@ -509,13 +509,13 @@ class en_us extends Language
         $strings['RegisterANewAccount'] = 'Register a New Account';
         $strings['Dates'] = 'Dates';
         $strings['More'] = 'More';
-        $strings['ResourceAvailability'] = 'Court Availability';
+        $strings['ResourceAvailability'] = 'Resource Availability';
         $strings['UnavailableAllDay'] = 'Unavailable All Day';
         $strings['AvailableUntil'] = 'Available Until';
         $strings['AvailableBeginningAt'] = 'Available Beginning At';
         $strings['AvailableAt'] = 'Available At';
-        $strings['AllResourceTypes'] = 'All Court Types';
-        $strings['AllResourceStatuses'] = 'All Court Statuses';
+        $strings['AllResourceTypes'] = 'All Resource Types';
+        $strings['AllResourceStatuses'] = 'All Resource Statuses';
         $strings['AllowParticipantsToJoin'] = 'Allow Participants To Join';
         $strings['Join'] = 'Join';
         $strings['YouAreAParticipant'] = 'You are a participant of this reservation';
@@ -537,7 +537,7 @@ class en_us extends Language
         $strings['RemoveExistingPermissions'] = 'Remove existing permissions?';
         $strings['Continue'] = 'Continue';
         $strings['WeNeedYourEmailAddress'] = 'We need your email address to reserve';
-        $strings['ResourceColor'] = 'Court Color';
+        $strings['ResourceColor'] = 'Resource Color';
         $strings['DateTime'] = 'Date Time';
         $strings['AutoReleaseNotification'] = 'Automatically released if not checked in within %s minutes';
         $strings['RequiresCheckInNotification'] = 'Requires check in/out';
@@ -558,7 +558,7 @@ class en_us extends Language
         $strings['SpecificDates'] = 'Show Specific Dates';
         $strings['Users'] = 'Users';
         $strings['Guest'] = 'Guest';
-        $strings['ResourceDisplayPrompt'] = 'Court to Display';
+        $strings['ResourceDisplayPrompt'] = 'Resource to Display';
         $strings['Credits'] = 'Credits';
         $strings['AvailableCredits'] = 'Available Credits';
         $strings['CreditUsagePerSlot'] = 'Requires %s credits per slot (off peak)';
@@ -569,7 +569,7 @@ class en_us extends Language
         $strings['MoreOptions'] = 'More Options';
         $strings['SendAsEmail'] = 'Send As Email';
         $strings['UsersInGroups'] = 'Users In Groups';
-        $strings['UsersWithAccessToResources'] = 'Users With Access To Courts';
+        $strings['UsersWithAccessToResources'] = 'Users With Access To Resources';
         $strings['AnnouncementSubject'] = 'A new announcement was posted by %s';
         $strings['AnnouncementEmailNotice'] = 'users will be sent this announcement as an email';
         $strings['Day'] = 'Day';
@@ -578,14 +578,14 @@ class en_us extends Language
         $strings['WaitlistRequestAdded'] = 'You will be notified if this time becomes available';
         $strings['PrintQRCode'] = 'Print QR Code';
         $strings['FindATime'] = 'Find A Time';
-        $strings['AnyResource'] = 'Any Court';
+        $strings['AnyResource'] = 'Any Resource';
         $strings['ThisWeek'] = 'This Week';
         $strings['Hours'] = 'Hours';
         $strings['Minutes'] = 'Minutes';
         $strings['ImportICS'] = 'Import From ICS';
         $strings['ImportQuartzy'] = 'Import From Quartzy';
         $strings['OnlyIcs'] = 'Only *.ics files can be uploaded.';
-        $strings['IcsLocationsAsResources'] = 'Locations will be imported as courts.';
+        $strings['IcsLocationsAsResources'] = 'Locations will be imported as resources.';
         $strings['IcsMissingOrganizer'] = 'Any event missing an organizer will have the owner set to the current user.';
         $strings['IcsWarning'] = 'Reservation rules will not be enforced - conflicts, duplicates, etc are possible.';
         $strings['BlackoutAroundConflicts'] = 'Blackout around conflicting reservations';
@@ -602,10 +602,10 @@ class en_us extends Language
         $strings['Detect'] = 'Detect';
         $strings['Autofill'] = 'Autofill';
         $strings['NameOrEmail'] = 'name or email';
-        $strings['ImportResources'] = 'Import Courts';
-        $strings['ExportResources'] = 'Export Courts';
-        $strings['ResourceImportInstructions'] = '<ul><li>File must be in CSV format with UTF-8 encoding.</li><li>Name is required field. Leaving other fields blank will set default values.</li><li>Status options are \'Available\', \'Unavailable\' and \'Hidden\'.</li><li>Color should be the hex value. ex) #ffffff.</li><li>Auto assign and approval columns can be true or false.</li><li>Attribute validity will not be enforced.</li><li>Comma separate multiple court groups.</li><li>Durations can be specified in the format #d#h#m or HH:mm (1d3h30m or 27:30 for 1 day, 3 hours, 30 minutes)</li><li>Use the supplied template as an example.</li></ul>';
-        $strings['ReservationImportInstructions'] = '<ul><li>File must be in CSV format with UTF-8 encoding.</li><li>Email, court names, begin, and end are required fields.</li><li>Begin and end require full date time. Recommended format is YYYY-mm-dd HH:mm (2017-12-31 20:30).</li><li>Rules, conflicts, and valid time slots will not be checked.</li><li>Notifications will not be sent.</li><li>Attribute validity will not be enforced.</li><li>Comma separate multiple court names.</li><li>Use the supplied template as an example.</li></ul>';
+        $strings['ImportResources'] = 'Import Resources';
+        $strings['ExportResources'] = 'Export Resources';
+        $strings['ResourceImportInstructions'] = '<ul><li>File must be in CSV format with UTF-8 encoding.</li><li>Name is required field. Leaving other fields blank will set default values.</li><li>Status options are \'Available\', \'Unavailable\' and \'Hidden\'.</li><li>Color should be the hex value. ex) #ffffff.</li><li>Auto assign and approval columns can be true or false.</li><li>Attribute validity will not be enforced.</li><li>Comma separate multiple resource groups.</li><li>Durations can be specified in the format #d#h#m or HH:mm (1d3h30m or 27:30 for 1 day, 3 hours, 30 minutes)</li><li>Use the supplied template as an example.</li></ul>';
+        $strings['ReservationImportInstructions'] = '<ul><li>File must be in CSV format with UTF-8 encoding.</li><li>Email, resource names, begin, and end are required fields.</li><li>Begin and end require full date time. Recommended format is YYYY-mm-dd HH:mm (2017-12-31 20:30).</li><li>Rules, conflicts, and valid time slots will not be checked.</li><li>Notifications will not be sent.</li><li>Attribute validity will not be enforced.</li><li>Comma separate multiple resource names.</li><li>Use the supplied template as an example.</li></ul>';
         $strings['AutoReleaseMinutes'] = 'Autorelease Minutes';
         $strings['CreditsPeak'] = 'Credits (peak)';
         $strings['CreditsOffPeak'] = 'Credits (off peak)';
@@ -629,7 +629,7 @@ class en_us extends Language
         $strings['Schedules'] = 'Schedules';
         $strings['NotifyUser'] = 'Notify User';
         $strings['UpdateUsersOnImport'] = 'Update existing user if email already exists';
-        $strings['UpdateResourcesOnImport'] = 'Update existing courts if name already exists';
+        $strings['UpdateResourcesOnImport'] = 'Update existing resources if name already exists';
         $strings['Reject'] = 'Reject';
         $strings['CheckingAvailability'] = 'Checking availability';
         $strings['CreditPurchaseNotEnabled'] = 'You have not enabled the ability to purchase credits';
@@ -693,7 +693,7 @@ class en_us extends Language
         $strings['ChooseOrDropFile'] = 'Choose a file or drag it here';
         $strings['SlackBookResource'] = 'Book %s now';
         $strings['SlackBookNow'] = 'Book Now';
-        $strings['SlackNotFound'] = 'We could not find a court with that name. Book Now to start a new reservation.';
+        $strings['SlackNotFound'] = 'We could not find a resource with that name. Book Now to start a new reservation.';
         $strings['AutomaticallyAddToGroup'] = 'Automatically add new users to this group';
         $strings['GroupAutomaticallyAdd'] = 'Auto Add';
         $strings['TermsOfService'] = 'Terms of Service';
@@ -710,11 +710,11 @@ class en_us extends Language
         $strings['AvailableAllYear'] = 'All Year';
         $strings['Availability'] = 'Availability';
         $strings['AvailableBetween'] = 'Available Between';
-        $strings['ConcurrentYes'] = 'Courts can be booked by more than one person at a time';
-        $strings['ConcurrentNo'] = 'Courts cannot be booked by more than one person at a time';
+        $strings['ConcurrentYes'] = 'Resources can be booked by more than one person at a time';
+        $strings['ConcurrentNo'] = 'Resources cannot be booked by more than one person at a time';
         $strings['ScheduleAvailabilityEarly'] = ' This schedule is not yet available. It is available';
         $strings['ScheduleAvailabilityLate'] = 'This schedule is no longer available. It was available';
-        $strings['ResourceImages'] = 'Court Images';
+        $strings['ResourceImages'] = 'Resource Images';
         $strings['FullAccess'] = 'Full Access';
         $strings['ViewOnly'] = 'View Only';
         $strings['Purge'] = 'Purge';
@@ -747,7 +747,7 @@ class en_us extends Language
         $strings['ReloadOriginalContents'] = 'Reload Original Contents';
         $strings['UpdateEmailTemplateSuccess'] = 'Updated email template';
         $strings['UpdateEmailTemplateFailure'] = 'Could not update email template. Check to make sure the directory is writable.';
-        $strings['BulkResourceDelete'] = 'Bulk Court Delete';
+        $strings['BulkResourceDelete'] = 'Bulk Resource Delete';
         $strings['NewVersion'] = 'New version!';
         $strings['WhatsNew'] = 'Whats New?';
         $strings['OnlyViewedCalendar'] = 'This schedule can only be viewed from the calendar view';
@@ -773,34 +773,34 @@ class en_us extends Language
         $strings['Custom'] = 'Custom';
         $strings['AddDate'] = 'Add Date';
         $strings['RepeatOn'] = 'Repeat On';
-        $strings['ScheduleConcurrentMaximum'] = 'A total of <b>%s</b> courts may be reserved concurrently';
-        $strings['ScheduleConcurrentMaximumNone'] = 'There is no limit to the number of concurrent reserved courts';
-        $strings['ScheduleMaximumConcurrent'] = 'Maximum number of courts reserved concurrently';
-        $strings['ScheduleMaximumConcurrentNote'] = 'When set, the total number of courts that can be reserved concurrently for this schedule will be limited.';
-        $strings['ScheduleResourcesPerReservationMaximum'] = 'Each reservation is limited to a maximum of <b>%s</b> courts';
-        $strings['ScheduleResourcesPerReservationNone'] = 'There is no limit to the number of courts per reservation';
-        $strings['ScheduleResourcesPerReservation'] = 'Maximum number of courts per reservation';
+        $strings['ScheduleConcurrentMaximum'] = 'A total of <b>%s</b> resources may be reserved concurrently';
+        $strings['ScheduleConcurrentMaximumNone'] = 'There is no limit to the number of concurrent reserved resources';
+        $strings['ScheduleMaximumConcurrent'] = 'Maximum number of resources reserved concurrently';
+        $strings['ScheduleMaximumConcurrentNote'] = 'When set, the total number of resources that can be reserved concurrently for this schedule will be limited.';
+        $strings['ScheduleResourcesPerReservationMaximum'] = 'Each reservation is limited to a maximum of <b>%s</b> resources';
+        $strings['ScheduleResourcesPerReservationNone'] = 'There is no limit to the number of resources per reservation';
+        $strings['ScheduleResourcesPerReservation'] = 'Maximum number of resources per reservation';
         $strings['ResourceConcurrentReservations'] = 'Allow %s concurrent reservations';
         $strings['ResourceConcurrentReservationsNone'] = 'Do not allow concurrent reservations';
         $strings['AllowConcurrentReservations'] = 'Allow concurrent reservations';
-        $strings['ResourceDisplayInstructions'] = 'No court has been selected. You can find the URL to display a court in Application Management, Courts. The court must be publicly accessible.';
+        $strings['ResourceDisplayInstructions'] = 'No resource has been selected. You can find the URL to display a resource in Application Management, Resources. The resource must be publicly accessible.';
         $strings['Owner'] = 'Owner';
         $strings['MaximumConcurrentReservations'] = 'Maximum Concurrent Reservations';
         $strings['NotifyUsers'] = 'Notify Users';
         $strings['Message'] = 'Message';
         $strings['AllUsersWhoHaveAReservationInTheNext'] = 'Anyone with a reservation in the next';
-        $strings['ChangeResourceStatus'] = 'Change Court Status';
+        $strings['ChangeResourceStatus'] = 'Change Resource Status';
         $strings['UpdateGroupsOnImport'] = 'Update existing group if name matches';
-        $strings['GroupsImportInstructions'] = '<ul><li>File must be in CSV format.</li><li>Name is required.</li><li>Member lists should be comma separated lists of emails.</li><li>Empty member lists when updating groups will leave members unchanged.</li><li>Permissions lists should be comma separated lists of court names.</li><li>Empty permissions lists when updating groups will leave permissions unchanged.</li><li>Use the supplied template as an example.</li></ul>';
+        $strings['GroupsImportInstructions'] = '<ul><li>File must be in CSV format.</li><li>Name is required.</li><li>Member lists should be comma separated lists of emails.</li><li>Empty member lists when updating groups will leave members unchanged.</li><li>Permissions lists should be comma separated lists of resource names.</li><li>Empty permissions lists when updating groups will leave permissions unchanged.</li><li>Use the supplied template as an example.</li></ul>';
         $strings['PhoneRequired'] = 'Phone is required';
         $strings['OrganizationRequired'] = 'Organization is required';
         $strings['PositionRequired'] = 'Position is required';
         $strings['GroupMembership'] = 'Group Membership';
         $strings['AvailableGroups'] = 'Available Groups';
-        $strings['CheckingAvailabilityError'] = 'Cannot get court availability - too many courts';
+        $strings['CheckingAvailabilityError'] = 'Cannot get resource availability - too many resources';
         $strings['ScanToSchedule'] = 'Scan to schedule';
         $strings['MaintenanceNotice'] = 'Currently performing maintenance. We will be back soon.';
-        $strings['MoreResourceActions'] = 'More Court Actions';
+        $strings['MoreResourceActions'] = 'More Resource Actions';
         // End Strings
 
         // Install
@@ -821,7 +821,7 @@ class en_us extends Language
         $strings['CreateDatabase'] = 'Create the database';
         $strings['CreateDatabaseUser'] = 'Create the database user';
         $strings['PopulateExampleData'] = 'Import sample data. Creates admin account: admin/password and user account: user/password';
-        $strings['PopulateLargeExampleData'] = 'Also import large sample data. Adds more users, courts, groups, and reservations for realistic testing';
+        $strings['PopulateLargeExampleData'] = 'Also import large sample data. Adds more users, resources, groups, and reservations for realistic testing';
         $strings['DataWipeWarning'] = 'Warning: This will delete any existing data';
         $strings['RunInstallation'] = 'Run Installation';
         $strings['UpgradeNotice'] = 'You are upgrading from version <b>%s</b> to version <b>%s</b>';
@@ -855,7 +855,7 @@ class en_us extends Language
         $strings['MinDurationError'] = 'This reservation must last at least %s.';
         $strings['MaxDurationError'] = 'This reservation cannot last longer than %s.';
         $strings['ConflictingAccessoryDates'] = 'There are not enough of the following accessories:';
-        $strings['NoResourcePermission'] = 'You do not have permission to access one or more of the requested courts.';
+        $strings['NoResourcePermission'] = 'You do not have permission to access one or more of the requested resources.';
         $strings['ConflictingReservationDates'] = 'There are conflicting reservations on the following dates:';
         $strings['InstancesOverlapRule'] = 'Some instances of the reservation series overlap:';
         $strings['StartDateBeforeEndDateRule'] = 'The start date and time must be before the end date and time.';
@@ -881,11 +881,11 @@ class en_us extends Language
         $strings['PasswordErrorRequirements'] = 'Password must contain a combination of at least %s upper and lower case letters and %s numbers.';
         $strings['NoReservationAccess'] = 'You are not allowed to change this reservation.';
         $strings['PasswordControlledExternallyError'] = 'Your password is controlled by an external system and cannot be updated here.';
-        $strings['AccessoryResourceRequiredErrorMessage'] = 'Accessory %s can only be booked with courts %s';
+        $strings['AccessoryResourceRequiredErrorMessage'] = 'Accessory %s can only be booked with resources %s';
         $strings['AccessoryMinQuantityErrorMessage'] = 'You must book at least %s of accessory %s';
         $strings['AccessoryMaxQuantityErrorMessage'] = 'You cannot book more than %s of accessory %s';
-        $strings['AccessoryResourceAssociationErrorMessage'] = 'Accessory \'%s\' cannot be booked with the requested courts';
-        $strings['NoResources'] = 'You have not added any courts.';
+        $strings['AccessoryResourceAssociationErrorMessage'] = 'Accessory \'%s\' cannot be booked with the requested resources';
+        $strings['NoResources'] = 'You have not added any resources.';
         $strings['ParticipationNotAllowed'] = 'You are not allowed to join this reservation.';
         $strings['ReservationCannotBeCheckedInTo'] = 'This reservation cannot be checked in to.';
         $strings['ReservationCannotBeCheckedOutFrom'] = 'This reservation cannot be checked out from.';
@@ -900,8 +900,8 @@ class en_us extends Language
         $strings['WhatCanThisGroupManage'] = 'What can this group manage?';
         $strings['ReservationParticipationActivityPreference'] = 'When someone joins or leaves my reservation';
         $strings['RegisteredAccountRequired'] = 'Only registered users can book reservations';
-        $strings['InvalidNumberOfResourcesError'] = 'The maximum number of courts that can be reserved in a single reservation is %s';
-        $strings['ScheduleTotalReservationsError'] = 'This schedule only allows %s courts to be reserved concurrently. This reservation would violate that limit on the following dates:';
+        $strings['InvalidNumberOfResourcesError'] = 'The maximum number of resources that can be reserved in a single reservation is %s';
+        $strings['ScheduleTotalReservationsError'] = 'This schedule only allows %s resources to be reserved concurrently. This reservation would violate that limit on the following dates:';
         $strings['SelfRegistrationDisabled'] = 'Unregistered user and self-registration is disabled. Please contact an administrator to create your account.';
         // End Errors
 
@@ -913,7 +913,7 @@ class en_us extends Language
         $strings['AwaitingActivation'] = 'Awaiting Activation';
         $strings['PendingApproval'] = 'Pending Approval';
         $strings['ManageSchedules'] = 'Schedules';
-        $strings['ManageResources'] = 'Courts';
+        $strings['ManageResources'] = 'Resources';
         $strings['ManageAccessories'] = 'Accessories';
         $strings['ManageUsers'] = 'Users';
         $strings['ManageGroups'] = 'Groups';
@@ -931,7 +931,7 @@ class en_us extends Language
         $strings['EditProfile'] = 'Edit My Profile';
         $strings['FindAnOpening'] = 'Find An Opening';
         $strings['OpenInvitations'] = 'Open Invitations';
-        $strings['ResourceCalendar'] = 'Court Calendar';
+        $strings['ResourceCalendar'] = 'Resource Calendar';
         $strings['Reservation'] = 'New Reservation';
         $strings['Install'] = 'Installation';
         $strings['ChangePassword'] = 'Change Password';
@@ -943,7 +943,7 @@ class en_us extends Language
         $strings['ManageAnnouncements'] = 'Announcements';
         $strings['Responsibilities'] = 'Responsibilities';
         $strings['GroupReservations'] = 'Group Reservations';
-        $strings['ResourceReservations'] = 'Court Reservations';
+        $strings['ResourceReservations'] = 'Resource Reservations';
         $strings['Customization'] = 'Customization';
         $strings['Attributes'] = 'Attributes';
         $strings['AccountActivation'] = 'Account Activation';
@@ -956,16 +956,16 @@ class en_us extends Language
         $strings['Group'] = 'Group';
         $strings['ManageConfiguration'] = 'Application Configuration';
         $strings['LookAndFeel'] = 'Look and Feel';
-        $strings['ManageResourceGroups'] = 'Court Groups';
-        $strings['ManageResourceTypes'] = 'Court Types';
-        $strings['ManageResourceStatus'] = 'Court Statuses';
+        $strings['ManageResourceGroups'] = 'Resource Groups';
+        $strings['ManageResourceTypes'] = 'Resource Types';
+        $strings['ManageResourceStatus'] = 'Resource Statuses';
         $strings['ReservationColors'] = 'Reservation Colors';
         $strings['SearchReservations'] = 'Search Reservations';
         $strings['ManagePayments'] = 'Payments';
         $strings['ViewCalendar'] = 'View Calendar';
         $strings['DataCleanup'] = 'Data Cleanup';
         $strings['ManageEmailTemplates'] = 'Manage Email Templates';
-        $strings['CheckResources'] = 'Check Courts';
+        $strings['CheckResources'] = 'Check Resources';
         $strings['CheckSchedules'] = 'Check Schedules';
         // End Page Titles
 
@@ -1064,15 +1064,15 @@ class en_us extends Language
         $strings['MissingCheckOutReservations'] = 'Missing Check Out Reservations';
         //End Missing Check In/Out Reservations in Dashboard
 
-        //Schedule Court Permissions
-        $strings['NoResourcePermissions'] = 'Can\'t see reservation details because you don\'t have permissions to any of the courts in this reservation';
-        //End Schedule Court Permissions
+        //Schedule Resource Permissions
+        $strings['NoResourcePermissions'] = 'Can\'t see reservation details because you don\'t have permissions to any of the resources in this reservation';
+        //End Schedule Resource Permissions
 
-        //View Court
+        //View Resource
         $strings['Check'] = 'Check';
         $strings['PermissionType'] = 'Permission Type';
-        $strings['NoResourcesToView'] = 'No available courts';
-        //End View Court
+        $strings['NoResourcesToView'] = 'No available resources';
+        //End View Resource
 
         //Datatables
         $strings['Info'] = 'Showing page _PAGE_ of _PAGES_ (_MAX_ total records)';

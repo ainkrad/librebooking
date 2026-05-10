@@ -1,4 +1,4 @@
-<div class="accordion-item shadow mb-2" id="announcementsDashboard">
+{* <div class="accordion-item shadow mb-2" id="announcementsDashboard">
 	<div class="accordion-header dashboardHeader">
 		<button class="accordion-button collapsed link-primary fw-bold" type="button" data-bs-toggle="collapse"
 			data-bs-target="#announcementsContents" aria-expanded="false" aria-controls="announcementsContents">
@@ -18,4 +18,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> *}
