@@ -3,11 +3,12 @@
 		<i class="bi bi-chevron-double-up" aria-hidden="true"></i>
 	</div>
 	<footer class="bg-light border-top text-center py-1" role="contentinfo">
-		{if $CompanyName neq ''}
-			<div class="mb-2"><a class="link-primary" href="{$CompanyUrl}">{$CompanyName}</a></div>
-		{/if}
-		<div><a class="link-primary" href="https://github.com/LibreBooking/librebooking">LibreBooking - GPLv3 -
-				{$DisplayVersion}</a></div>
+		{* {if $CompanyName neq ''}
+			<div class="mb-2"><a class="link-primary" href="{$CompanyUrl}">Powered by {$CompanyName}</a></div>
+		{/if} *}
+		{* Hidden this but move this somewhere, crereate a dedicated about page}
+		{* <div><a class="link-primary" href="https://github.com/LibreBooking/librebooking">LibreBooking - GPLv3 -
+				{$DisplayVersion}</a></div> *}
 	</footer>
 
 	<script type="text/javascript">
