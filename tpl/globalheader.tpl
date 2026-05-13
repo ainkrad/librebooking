@@ -121,7 +121,7 @@
         <div class="d-flex align-items-center justify-content-between gap-2 m-2">
             <div class="d-flex align-items-center gap-2">
                 <a class="navbar-brand" href="{$HomeUrl}">
-                    <img src="{$Path}img/{$LogoUrl}?{$Version}" alt="{$Title}" class="logo">
+                    {* <img src="{$Path}img/{$LogoUrl}?{$Version}" alt="{$Title}" class="logo"> *}
                 </a>
                 <div class="border-start ps-2 d-flex flex-column">
                     {* {if $CompanyName neq ''}
@@ -409,7 +409,7 @@
                                     </ul>
                                 </li>
                             {/if}
-                            {if isset($LoggedIn) && $LoggedIn && count($AvailableLanguages) > 1}
+                            {* {if isset($LoggedIn) && $LoggedIn && count($AvailableLanguages) > 1}
                                 <li class="nav-item dropdown" id="navLanguageDropdown">
                                     <a href="#" class="nav-link link-primary dropdown-toggle" role="button"
                                         data-bs-toggle="dropdown" aria-label="{translate key=ChangeLanguage}"
@@ -429,7 +429,7 @@
                                         {/foreach}
                                     </ul>
                                 </li>
-                            {/if}
+                            {/if} *}
                             {* <li class="nav-item dropdown" id="navHelpDropdown">
                                 <a href="#" class="nav-link link-primary dropdown-toggle" role="button"
                                     data-bs-toggle="dropdown">{translate key="Help"}</a>

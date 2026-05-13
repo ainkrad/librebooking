@@ -10,7 +10,6 @@
 
             <div class="card-body">
                 <h1 class="text-center border-bottom mb-2">{translate key=EditProfile}</h1>
-
                 <div class="d-none alert alert-success" role="alert" id="profileUpdatedMessage">
                     <i class="bi bi-check-circle-fill text-success"></i> {translate key=YourProfileWasUpdated}
                 </div>
@@ -29,7 +28,9 @@
                         {async_validator id="additionalattributes" key=""}
                     </ul>
                 </div>
-
+                <div class="d-flex align-items-center justify-content-center mb-3">
+                    <img src="{$Path}img/table.png" alt="User Photo" class="rounded-circle" width="100" height="100">
+                </div>
                 <div class="row gy-2">
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
