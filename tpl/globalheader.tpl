@@ -488,14 +488,17 @@
                                     <a href="#" class="nav-link link-primary dropdown-toggle" role="button"
                                             data-bs-toggle="dropdown">
                                         <img src="{$Path}img/table.png" alt="User Photo" class="rounded-circle" width="40" height="40">
-                                        {translate key="User"}
+                                        {$UserName}
                                     </a>
                                         <ul class="dropdown-menu  dropdown-menu-end">
-
+                                            {* Hide Profile and Change pass if Guest *}
+                                            {if {$UserName} neq 'Guest'}
                                             <li id="navProfile"><a class="dropdown-item"
                                                     href="{$Path}{Pages::PROFILE}">{translate key="Profile"}</a></li>
                                             <li id="navPassword"><a class="dropdown-item"
                                                     href="{$Path}{Pages::PASSWORD}">{translate key="ChangePassword"}</a></li>
+                                            {/if}
+
                                             <li id="navSignOut"><a class="dropdown-item"
                                                     href="{$Path}logout.php">{translate key="SignOut"}</a>
                                             </li>

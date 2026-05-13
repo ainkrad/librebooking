@@ -27,7 +27,7 @@
                 <div class="card-body mx-3">
                     <div id="login-box" class="default-box">
                         <div class="login-icon my-2">
-                            {* <img src="{$Path}img/{$LogoUrl}?{$Version}" alt="{$Title}" class="mx-auto d-block w-50"> *}
+                            <img src="{$Path}img/{$LogoUrl}?{$Version}" alt="{$Title}" class="mx-auto d-block w-50">
                         </div>
 
                         {if $ShowLoginError}
@@ -71,9 +71,9 @@
                                 <input type="hidden" {formname key=RESUME} value="{$ResumeUrl}" />
                             </div>
                         {/if}
-                            <div class="navbar-nav navbar-right">
-        <a href="/view-schedule.php" class="btn btn-primary btn-lg">Reserve as Guest</a>
-    </div>
+                            <div class="d-grid mb-2 mt-3">
+                                <a href="/guestindex.php" class="btn btn-primary btn-lg" name="reserveAsGuest" value="1">Reserve as Guest</a>
+                            </div>
                         <div class="clearfix">
                             {if $ShowUsernamePrompt &&  $ShowPasswordPrompt}
                                 <div class="float-start">

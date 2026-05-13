@@ -1,5 +1,5 @@
 {include file='globalheader.tpl'}
-
+{if {$UserName} neq 'Guest'}
 <div class="page-change-password">
 
 	{if !$AllowPasswordChange}
@@ -52,5 +52,7 @@
 {/if}
 
 </div>
+
+{/if}
 {include file="javascript-includes.tpl"}
 {include file='globalfooter.tpl'}
