@@ -12,6 +12,7 @@ table.reservations thead td {
   top: 50px;
   z-index: 100;
   background-clip: padding-box;
+  font-size: 1.2em;
 }
 
 table.reservations td {
@@ -64,6 +65,7 @@ table.reservations td.reslabel {
   padding-left: 2px;
   background-color: #ededed;
   color: var(--label-text-on-light);
+  font-size: 1.2em;
 }
 
 table.reservations tr.today td.reslabel {
@@ -133,6 +135,7 @@ table.reservations.mobile div.reservable {
 
 #reservations .mobile td.today {
   background-color: #5199d1;
+  font-size: 1.5em;
 }
 
 #reservations .mobile .slot {
@@ -304,6 +307,7 @@ td.dropped {
 
 table.reservations td.resourcename.hilite {
   background-color: #fbffc2;
+  font-size: 1.5em;
 }
 
 div.legend {

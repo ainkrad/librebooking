@@ -498,7 +498,11 @@
                                             <li id="navPassword"><a class="dropdown-item"
                                                     href="{$Path}{Pages::PASSWORD}">{translate key="ChangePassword"}</a></li>
                                             {/if}
-
+                                            {if isset($CreditsEnabled) && $CreditsEnabled}
+                                                <li id="navUserCredits">
+                                                    <a class="dropdown-item" href="{$Path}{Pages::CREDITS}">{translate key="Credits"}</a>
+                                                </li>
+                                            {/if}
                                             <li id="navSignOut"><a class="dropdown-item"
                                                     href="{$Path}logout.php">{translate key="SignOut"}</a>
                                             </li>

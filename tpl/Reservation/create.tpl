@@ -63,16 +63,24 @@
                 {/if}
 
                 <div class="form-group {$detailsCol} py-2 border-bottom">
-                    <label class="fw-bold" for="userName">{translate key='Owner'}</label>
-                    {if $ShowUserDetails && $ShowReservationDetails}
-                    <a href="#" id="userName" data-userid="{$UserId}" class="link-primary">{$ReservationUserName}</a>
-                    {else}
-                    {translate key=Private}
+
+                    {if {$UserName} neq 'Guest'}  
+                        <label class="fw-bold" for="userName">{translate key='Owner'}</label>
+
+                        {if $ShowUserDetails && $ShowReservationDetails}
+                            {* <a href="#" id="userName" data-userid="{$UserId}" class="link-primary">{$ReservationUserName}</a> *}
+                            {$title|escape:'html'}
+                        {else}
+                            {* {translate key=Private} *}
+                            {$title|escape:'html'}
+                        {/if}
                     {/if}
-                    <input id="userId" type="hidden" {formname key=USER_ID} value="{$UserId}" />
+                        <input id="userId" type="hidden" {formname key=USER_ID} value="{$UserId}" />
+                    
+                    
                     {if $CanChangeUser}
                     <a href="#" id="showChangeUsers" class="link-primary">{translate key=Change} <i
-                            class="bi bi-person-fill"></i></a>
+                            class="bi bi-person-fill"></i></a>  
                     <div class="modal fade" id="changeUserDialog" tabindex="-1" role="dialog"
                         aria-labelledby="usersModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable">

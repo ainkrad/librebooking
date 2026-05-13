@@ -1,5 +1,5 @@
 {include file='globalheader.tpl' Validator=true}
-{* {if {$UserName} neq 'Guest'} *}
+{if {$UserName} neq 'Guest'}
 <div class="page-profile">
 
     <div id="profile-box" class="default-box card shadow col-12 col-sm-8 mx-auto">
@@ -207,5 +207,5 @@
     </div>
 
 </div>
-{* {/if} *}
+{/if}
 {include file='globalfooter.tpl'}

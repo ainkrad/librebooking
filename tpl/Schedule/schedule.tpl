@@ -268,8 +268,7 @@
                                 class="legend reserved mine border border-dark-subtle rounded-2 d-flex align-items-center justify-content-center lh-sm py-1">
                                 {translate key=MyReservation}
                             </div>
-                            <div
-                                class="legend reserved participating border border-dark-subtle rounded-2 d-flex align-items-center justify-content-center lh-sm py-1">
+                            <div class="legend reserved participating border border-dark-subtle rounded-2 d-flex align-items-center justify-content-center lh-sm py-1">
                                 {translate key=Participant}</div>
                         {/if}
                         <div
