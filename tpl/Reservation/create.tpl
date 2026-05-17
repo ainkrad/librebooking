@@ -630,7 +630,7 @@
                 };
 
                 // 2. DOM Elements Cache
-                const modal = document.getElementById('paymentModal');
+                const modal2 = document.getElementById('paymentModal');
                 const preBookBtn = document.getElementById('preBookBtn');
                 const backToMethodsBtn = document.getElementById('backToMethodsBtn');
                 const finalConfirmBtn = document.getElementById('finalConfirmBtn');
@@ -733,13 +733,13 @@
                 
                 preBookBtn.onclick = function() {
                     // Show the payment modal
-                    modal.style.display = 'block';
+                    modal2.style.display = 'block';
                 };
 
 
                 closePaymentModalBtn.addEventListener('click', function() {
                     // Cancel the payment modal
-                    modal.style.display = 'none';
+                    modal2.style.display = 'none';
                     resetModalState();
                     // Optionally, you can also trigger the cancel action for the entire booking here
                     // window.location='{$ReturnUrl}';
@@ -764,7 +764,7 @@
                     console.log("Submitting booking with payment data:", paymentData);
                     
                     // Close the modal after submission
-                    modal.style.display = 'none';
+                    modal2.style.display = 'none';
                     resetModalState();
                 };
             </script>
