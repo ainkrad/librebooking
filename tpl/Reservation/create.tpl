@@ -30,7 +30,7 @@
                         </div>
                     {/if}
                 </div>
-                <div class="float-end buttonsEdit">
+                {* <div class="float-end buttonsEdit">
                     <button type="button" class="btn btn-sm btn-outline-secondary"
                         onclick="window.location='{$ReturnUrl}'">
                         <i class="bi bi-arrow-left-circle-fill"></i>
@@ -42,7 +42,7 @@
                         {translate key='Create'}
                     </button>
                     {/block}
-                </div>
+                </div> *}
             </div>
 
             <div class="row gx-2">
@@ -68,11 +68,11 @@
                         <label class="fw-bold" for="userName">{translate key='Owner'}</label>
 
                         {if $ShowUserDetails && $ShowReservationDetails}
-                            {* <a href="#" id="userName" data-userid="{$UserId}" class="link-primary">{$ReservationUserName}</a> *}
-                            {$title|escape:'html'}
+                            <a href="#" id="userName" data-userid="{$UserId}" class="link-primary">{$ReservationUserName}</a>
+                            {* {$title|escape:'html'} *}
                         {else}
-                            {* {translate key=Private} *}
-                            {$title|escape:'html'}
+                            {translate key=Private}
+                            {* {$title|escape:'html'} *}
                         {/if}
                     {/if}
                         <input id="userId" type="hidden" {formname key=USER_ID} value="{$UserId}" />
@@ -208,6 +208,169 @@
                     {/if}
 
                 </div>
+
+                {* Court modification testing *}
+
+                <div id="courtMapModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:99999; font-family:sans-serif;">
+                    <div style="background:#f4f6f9; width:95%; max-width:700px; margin:30px auto; padding:25px; border-radius:16px; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.3); box-sizing: border-box;">
+                        
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; border-bottom:2px solid #ddd; padding-bottom:10px;">
+                            <h3 style="margin:0; color:#222;" id="modalHeaderTitle">📍 Choose Location</h3>
+                            <button type="button" id="closeMapBtn" style="background:none; border:none; font-size:24px; cursor:pointer; color:#666;">&times;</button>
+                        </div>
+
+                        <div id="locationStepView">
+                            <p style="color:#666; font-size:15px; margin-bottom:20px;">Where are you playing today?</p>
+                            <div style="display:flex; flex-direction:column; gap:12px; max-width:400px; margin:0 auto 20px;">
+                                
+                                <button type="button" class="location-select-btn" data-location-filename="location_1" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
+                                    🏢 Location A (Quezon City) <span>➔</span>
+                                </button>
+                                
+                                <button type="button" class="location-select-btn" data-location-filename="location_2" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
+                                    🏢 Location B (Makati) <span>➔</span>
+                                </button>
+                                
+                            </div>
+                        </div>
+
+                        <div id="courtStepView" style="display:none;">
+                            
+                            <div id="courtLayoutsContainer">
+                                
+                                <div id="layout_location_1" class="layout-file-wrapper" style="display:none;">
+                                    {include file='court_layouts/location_1.tpl'}
+                                </div>
+
+                                <div id="layout_location_2" class="layout-file-wrapper" style="display:none;">
+                                    {include file='court_layouts/location_2.tpl'}
+                                </div>
+
+                            </div>
+
+                            <button type="button" id="backToLocationsBtn" style="background:#6c757d; color:white; border:none; padding:12px; width:100%; margin-top:20px; border-radius:6px; cursor:pointer; font-weight:bold;">
+                                ← Back to Locations
+                            </button>
+                        </div>
+
+                        <div style="margin-top:25px; border-top:1px solid #ddd; padding-top:15px; text-align:right;">
+                            <button type="button" id="confirmCourtSelectionBtn" style="background:#007bff; color:white; border:none; padding:12px 25px; border-radius:6px; cursor:pointer; font-weight:bold; display:none;">Apply Selection</button>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <button type="button" id="triggerCourtMapBtn" style="background:none; border:none; color:#dc3545; margin-top:12px; cursor:pointer; font-size:14px; font-weight:bold;">
+                    Court selection GUI (WIP)
+                </button>
+
+                {literal}
+                <script>
+
+                const modal = document.getElementById('courtMapModal');
+                const openBtn = document.getElementById('triggerCourtMapBtn');
+                const closeBtn = document.getElementById('closeMapBtn');
+                const backBtn = document.getElementById('backToLocationsBtn');
+                const applyBtn = document.getElementById('confirmCourtSelectionBtn');
+
+                const headerTitle = document.getElementById('modalHeaderTitle');
+
+                const locationView = document.getElementById('locationStepView');
+                const courtView = document.getElementById('courtStepView');
+
+                const locationButtons = document.querySelectorAll('.location-select-btn');
+
+                openBtn.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                });
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+
+               function showLocationStep() {
+                    chosenCourtId = "";
+                    locationView.style.display = 'block';
+                    courtView.style.display = 'none';
+                    applyBtn.style.display = 'none';
+                    headerTitle.innerText = "📍 Choose Location";
+                    
+                    // Clear active court selections across all sub-files
+                    document.querySelectorAll('.dynamic-court-btn').forEach(c => {
+                        c.style.borderColor = '';
+                        c.style.transform = 'scale(1)';
+                    });
+                }
+
+                function showCourtMapStep(filename, locationName) {
+                    locationView.style.display = 'none';
+                    courtView.style.display = 'block';
+                    applyBtn.style.display = 'inline-block';
+                    headerTitle.innerText = `🗺️ ${locationName} Layout`;
+
+                    // Hide all layout container views first
+                    document.querySelectorAll('.layout-file-wrapper').forEach(wrapper => {
+                        wrapper.style.display = 'none';
+                    });
+
+                    // Target and unhide the specific chosen include layout wrapper
+                    const targetLayout = document.getElementById(`layout_${filename}`);
+                    if (targetLayout) {
+                        targetLayout.style.display = 'block';
+                    }
+
+                }
+
+                backBtn.addEventListener('click', showLocationStep);
+
+                // Location processing mapping
+                locationButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const filename = this.getAttribute('data-location-filename');
+                        const locName = this.innerText.replace('➔', '').trim();
+                        showCourtMapStep(filename, locName);
+                    });
+                });
+                
+                // Global listener for dynamic courts inside the sub-files
+                document.addEventListener('click', function(e) {
+                    const courtBtn = e.target.closest('.dynamic-court-btn');
+                    if (courtBtn) {
+                        // Deselect other buttons across the entire layout container
+                        document.querySelectorAll('.dynamic-court-btn').forEach(c => {
+                            c.style.boxShadow = 'none';
+                            c.style.transform = 'scale(1)';
+                        });
+
+                        // Set highlight border states on current node target
+                        courtBtn.style.boxShadow = '0 0 0 4px #0056b3';
+                        courtBtn.style.transform = 'scale(1.02)';
+                        chosenCourtId = courtBtn.getAttribute('data-court-id');
+                    }
+                });
+
+                // Submit selection back to database hook
+                if (applyBtn) {
+                    applyBtn.addEventListener('click', function() {
+                        if (!chosenCourtId) {
+                            alert("Please click an available court canvas option first.");
+                            return;
+                        }
+                        
+                        const nativeDropdown = document.getElementById('courtSelectDropdownId');
+                        if (nativeDropdown) {
+                            nativeDropdown.value = chosenCourtId;
+                            nativeDropdown.dispatchEvent(new Event('change'));
+                        }
+
+                        modal.style.display = 'none';
+                    });
+    }
+
+                </script>
+                {/literal}
+
+                {* court modification testing ends here *}
+
 
                 <div class="reservationResources col-12 col-sm-6 py-2 border-bottom" id="reservation-resources">
                     <div class="d-flex align-items-center gap-2">
@@ -391,14 +554,224 @@
                             <span class="d-none d-sm-inline-block">{translate key='Cancel'}</span>
                         </button>
                         {block name="submitButtons"}
-                        <button type="button" class="btn btn-sm btn-primary save create btnCreate">
+                        <button type="button" id="preBookBtn" class="btn btn-primary">Proceed to Payment</button>
+                        
+                        {* <button type="button" class="btn btn-sm btn-primary save create btnCreate">
                             <i class="bi bi-check-circle"></i>
-                            {translate key='Create'} </button>
+                            {translate key='Create'} </button> *}
                         {/block}
                     </div>
                 </div>
             </div>
 
+            {* Gcash payment modal *}
+            <div id="paymentModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:99999; font-family: sans-serif;">
+                <div style="background:white; width:90%; max-width:420px; margin:50px auto; padding:25px; border-radius:12px; text-align:center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    
+                    <h3 style="margin-top:0; color:#333;">Finalize Your Booking</h3>
+                    
+                    <input type="hidden" id="selectedPaymentMethod" name="payment_method" value="">
+
+                    <div id="methodSelectionView" class="card-body align-items-center justify-content-center flex-column gap-3">
+                        <button type="button" id="payBtnCash" class="btn pay-method-btn">
+                            💵 Cash Payment <span>➔</span>
+                        </button>
+                        
+                        <button type="button" id="payBtnGcash" class="btn pay-method-btn">
+                            🔵 GCash QR <span>➔</span>
+                        </button>
+                        
+                        <button type="button" id="payBtnQrph" class="btn pay-method-btn">
+                            🔴 QRPH <span>➔</span>
+                        </button>
+                    </div>
+
+                    <div id="qrDisplayView" class="card-body align-items-center justify-content-center flex-column gap-3">
+                        <p id="qrInstructions" style="color:#555; font-size:14px;"></p>
+                        
+                        <img id="modalQRImage" src="" alt="Payment QR" style="width:100%; max-width:220px; margin:10px auto; display:block; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+                        
+                        <div style="margin-top:15px; text-align:left;">
+                            <label style="font-size:14px; color:#333;"><strong id="refLabel">Reference Number:</strong></label>
+                            <input type="text" id="gcashRef" name="gcash_reference" placeholder="Enter reference number" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:5px; box-sizing: border-box;">
+                            <small class="help-block" data-bv-result="VALID" style="display: none;">A valid Reference Number is required to complete the payment.</small>
+                        </div>
+                        
+                        {* <button type="button" onclick="goBackToMethods()" style="background:#6c757d; color:white; border:none; padding:10px; width:100%; margin-top:15px; border-radius:5px; cursor:pointer; font-weight:bold;">
+                            ← Change Payment Method
+                        </button> *}
+                    </div>
+
+                    <div class="card-body align-items-center justify-content-center flex-column gap-3">
+                        <button type="button" id="finalConfirmBtn" class="btn btn-sm btn-primary save create btnCreate" style="background:#28a745; color:white; border:none; padding:15px; width:100%; border-radius:5px; cursor:pointer; font-weight:bold; font-size:16px;">
+                            Confirm & Submit Booking
+                        </button>
+                        <button type="button" id="backToMethodsBtn" style="background:#6c757d; color:white; border:none; padding:10px; width:100%; margin-top:15px; border-radius:5px; cursor:pointer; font-weight:bold;">
+                            ← Change Payment Method
+                        </button>
+                    </div>
+                    
+
+                    <button type="button" id="closePaymentModalBtn" style="background:none; border:none; color:#dc3545; margin-top:12px; cursor:pointer; font-size:14px; font-weight:bold;">
+                        Cancel Payment
+                    </button>
+                    
+
+                </div>
+            </div>
+
+            <script>
+
+                let activeMethod = '';
+
+                const qrImages = {
+                    'gcash': '/img/your-gcash-qr.png',
+                    'qrph': '/img/your-gcash-qr.png'
+                };
+
+                // 2. DOM Elements Cache
+                const modal = document.getElementById('paymentModal');
+                const preBookBtn = document.getElementById('preBookBtn');
+                const backToMethodsBtn = document.getElementById('backToMethodsBtn');
+                const finalConfirmBtn = document.getElementById('finalConfirmBtn');
+                const closePaymentModalBtn = document.getElementById('closePaymentModalBtn');
+
+                const selectionView = document.getElementById('methodSelectionView');
+                const qrView = document.getElementById('qrDisplayView');
+                
+                const selectedMethodInput = document.getElementById('selectedPaymentMethod');
+                const gcashRefInput = document.getElementById('gcashRef');
+                const helpBlockElement = document.querySelector('.help-block');
+                const qrImageElement = document.getElementById('modalQRImage');
+                const qrInstructions = document.getElementById('qrInstructions');
+                const refLabel = document.getElementById('refLabel');
+                
+                const methodButtons = document.querySelectorAll('.pay-method-btn');
+                
+                resetModalState(); // Initialize modal state on page load
+
+                // 3. Helper Functions
+                function resetModalState() {
+                    activeMethod = '';
+                    if (selectedMethodInput) selectedMethodInput.value = '';
+                    if (gcashRefInput) gcashRefInput.value = '';
+                    
+                    qrView.style.display = 'none';
+                    selectionView.style.display = 'block';
+
+                    // hide confirm and back buttons until a method is selected
+                    finalConfirmBtn.style.display = 'none';
+                    backToMethodsBtn.style.display = 'none';
+                    
+                    methodButtons.forEach(btn => {
+                        // btn.style.borderColor = '#ccc';
+                        // btn.style.background = '#fff';
+                        // btn.style.color = '#333';
+                    });
+                }
+
+                function selectPaymentMode(method, targetButton) {
+                    activeMethod = method;
+                    if (selectedMethodInput) selectedMethodInput.value = method;
+                    
+                    // Reset button borders
+                    // methodButtons.forEach(btn => {
+                    //     btn.style.borderColor = '#ccc';
+                    //     btn.style.background = '#fff';
+                    //     btn.style.color = '#333';
+                    // });
+
+                    if (method === 'cash') {
+                        // Apply highlight directly to the passed element node
+                        // targetButton.style.borderColor = '#28a745';
+                        // targetButton.style.background = '#e8f5e9';
+                        // targetButton.style.color = '#1b5e20';
+                        qrView.style.display = 'none';
+                        
+                        // show confirm button immediately for cash since no QR is needed
+                        finalConfirmBtn.style.display = 'block';
+                        backToMethodsBtn.style.display = 'none';    
+                    }else {
+                        // Update QR view elements
+                        qrImageElement.src = qrImages[method] || '';
+                        
+                        // Switch views
+                        selectionView.style.display = 'none';
+                        qrView.style.display = 'block';
+                        
+                        // show back button in QR view
+                        backToMethodsBtn.style.display = 'block';
+                        finalConfirmBtn.style.display = 'none';
+                        // finalConfirmBtn.style.display = 'block';
+                    }
+                }
+
+                document.getElementById('payBtnCash').addEventListener('click', function() {
+                    selectPaymentMode('cash', this);
+                });
+      
+                document.getElementById('payBtnGcash').addEventListener('click', function() {
+                    selectPaymentMode('gcash', this);
+                });
+
+                document.getElementById('payBtnQrph').addEventListener('click', function() {
+                    selectPaymentMode('qrph', this);
+                }); 
+
+                // Show/hide help-block based on gcashRef input length
+                gcashRefInput.addEventListener('input', function() {
+                    if (this.value.trim().length < 10) {
+                        helpBlockElement.style.display = 'block';
+                        finalConfirmBtn.style.display = 'none';
+                    } else {
+                        helpBlockElement.style.display = 'none';
+                        finalConfirmBtn.style.display = 'block';
+                    }
+                });
+                
+                backToMethodsBtn.addEventListener('click', resetModalState);
+                
+                preBookBtn.onclick = function() {
+                    // Show the payment modal
+                    modal.style.display = 'block';
+                };
+
+
+                closePaymentModalBtn.addEventListener('click', function() {
+                    // Cancel the payment modal
+                    modal.style.display = 'none';
+                    resetModalState();
+                    // Optionally, you can also trigger the cancel action for the entire booking here
+                    // window.location='{$ReturnUrl}';
+                });
+
+
+                finalConfirmBtn.onclick = function() {
+                    if (!activeMethod) {
+                        alert("Please select a payment method first.");
+                        return;
+                    }
+                    if ((activeMethod === 'gcash' || activeMethod === 'qrph') && gcashRefInput.value.trim().length < 10) {
+                        alert("Please enter a valid reference number for GCash/QRPH.");
+                        return;
+                    }
+
+                    const paymentData = {
+                        method: activeMethod,
+                        reference: gcashRefInput.value
+                    };
+
+                    console.log("Submitting booking with payment data:", paymentData);
+                    
+                    // Close the modal after submission
+                    modal.style.display = 'none';
+                    resetModalState();
+                };
+            </script>
+
+            {* heres ends gcash try *}
+
+            
             {csrf_token}
 
             {if $UploadsEnabled}
