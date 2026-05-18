@@ -1,13 +1,72 @@
-<p style="color:#666; font-size:14px; margin-bottom:15px;">Quezon City Indoor Layout. Tap an open court to select.</p>
+<link rel="stylesheet" href="css/court-maps.css" type="text/css" />
 
-<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:15px; padding:15px; background:#e2e8f0; border-radius:8px; border:2px solid #cbd5e1;">
+<div style="text-align: center; padding: 10px;">
+    <p style="color:#666; font-size:14px; margin-bottom:15px;">Tap a court on the venue map below to select it:</p>
+
+    <div class="blueprint-wrapper">
+        
+        <img src="img/testcourt2.png" alt="Venue Layout" class="blueprint-image">
+
+        <div class="map-court-overlay dynamic-court-btn"
+             data-court-id="1" 
+             style="
+                top: 35%;
+                left: 6%;
+                width: 7%;
+                height: 45%;">
+        </div>
+
+        <div class="map-court-overlay dynamic-court-btn" 
+             data-court-id="2" 
+             style="
+                top: 35%;
+                left: 19%;
+                width: 7%;
+                height: 45%;">
+        </div>
+
+        <div class="map-court-overlay dynamic-court-btn" 
+             data-court-id="3" 
+             style="
+                top: 35%;
+                left: 32%;
+                width: 7%;
+                height: 45%;">
+        </div>
+
+        <div class="map-court-overlay dynamic-court-btn" 
+             data-court-id="4" 
+             style="
+                top: 35%;
+                left: 54%;
+                width: 7%;
+                height: 45%;">
+        </div>
+
+        <div class="map-court-overlay dynamic-court-btn" 
+             data-court-id="5" 
+             style="
+                top: 35%;
+                left: 67%;
+                width: 7%;
+                height: 45%;">
+        </div>
+
+        <div class="map-court-overlay dynamic-court-btn" 
+             data-court-id="6" 
+             style="
+                top: 35%;
+                left: 81%;
+                width: 7%;
+                height: 45%;">
+        </div>
+
     
-    <div class="court-blueprint dynamic-court-btn" data-court-id="1" style="background:#28a745; color:white; border-radius:6px; padding:30px 10px; cursor:pointer; font-weight:bold; border:2px solid #1e7e34;">
-        COURT A1 (Premium Wood)
-    </div>
 
-    <div class="court-blueprint dynamic-court-btn" data-court-id="2" style="background:#28a745; color:white; border-radius:6px; padding:30px 10px; cursor:pointer; font-weight:bold; border:2px solid #1e7e34;">
-        COURT A2 (Standard)
-    </div>
+        {* <div class="map-court-overlay dynamic-court-btn" 
+             data-court-id="3" 
+             style="top: 65%; left: 10%; width: 50%; height: 25%;">
+        </div> *}
 
+    </div>
 </div>

@@ -1,0 +1,44 @@
+
+/* Container frame that locks the map size */
+.blueprint-wrapper {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 4px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* The actual illustration image */
+.blueprint-image {
+    display: block;
+    width: 100%;
+    max-width: 650px; /* Adjust based on your canvas image export size */
+    height: auto;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* The invisible/semi-transparent court button overlay */
+.map-court-overlay {
+    position: absolute;
+    background-color: rgba(30, 136, 229, 0.0); /* Completely transparent by default */
+    border: 2px dashed transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Subtle feedback when hovering over a physical court on the map image */
+.map-court-overlay:hover {
+    background-color: rgba(255, 255, 255, 0.25); /* Translucent white shine */
+    border-color: #ffffff;
+}
+
+/* Master JavaScript active selection state ring */
+.map-court-overlay.active-selection {
+    background-color: rgba(30, 136, 229, 0.3) !important; /* Translucent blue fill */
+    border: 3px solid #1E88E5 !important;                /* Crisp blue boundary ring */
+    box-shadow: 0 0 15px rgba(30, 136, 229, 0.6);
+}

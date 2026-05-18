@@ -209,7 +209,7 @@
 
                 </div>
 
-                {* Court modification testing *}
+                {* START Court modification testing *}
 
                 <div id="courtMapModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:99999; font-family:sans-serif;">
                     <div style="background:#f4f6f9; width:95%; max-width:700px; margin:30px auto; padding:25px; border-radius:16px; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.3); box-sizing: border-box;">
@@ -230,6 +230,15 @@
                                 <button type="button" class="location-select-btn" data-location-filename="location_2" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
                                     🏢 Location B (Makati) <span>➔</span>
                                 </button>
+
+                                <button type="button" class="location-select-btn" data-location-filename="location_3" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
+                                    🏢 Location C (Makati) <span>➔</span>
+                                </button>
+
+                                
+                                <button type="button" class="location-select-btn" data-location-filename="location_4" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
+                                    🏢 Location D (Makati) <span>➔</span>
+                                </button>
                                 
                             </div>
                         </div>
@@ -244,6 +253,14 @@
 
                                 <div id="layout_location_2" class="layout-file-wrapper" style="display:none;">
                                     {include file='court_layouts/location_2.tpl'}
+                                </div>
+
+                                <div id="layout_location_3" class="layout-file-wrapper" style="display:none;">
+                                    {include file='court_layouts/location_3.tpl'}
+                                </div>
+
+                                <div id="layout_location_4" class="layout-file-wrapper" style="display:none;">
+                                    {include file='court_layouts/location_4.tpl'}
                                 </div>
 
                             </div>
@@ -285,9 +302,21 @@
                 });
                 closeBtn.addEventListener('click', function() {
                     modal.style.display = 'none';
+                    resetCourtSelection();
                 });
 
+                function resetCourtModalSelection() {
+                    document.querySelectorAll('.dynamic-court-btn').forEach(c => {
+                        c.style.boxShadow = 'none';
+                        c.style.transform = 'scale(1)';
+                    });
+                    chosenCourtId = "";
+                    courtView.style.display = 'none';
+                    locationView.style.display = 'block';
+                }
+
                function showLocationStep() {
+                    resetCourtModalSelection();
                     chosenCourtId = "";
                     locationView.style.display = 'block';
                     courtView.style.display = 'none';
@@ -369,7 +398,7 @@
                 </script>
                 {/literal}
 
-                {* court modification testing ends here *}
+                {* ENDS court modification testing  here *}
 
 
                 <div class="reservationResources col-12 col-sm-6 py-2 border-bottom" id="reservation-resources">

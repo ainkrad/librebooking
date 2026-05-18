@@ -26,9 +26,9 @@
             <div class="card shadow mb-2">
                 <div class="card-body mx-3">
                     <div id="login-box" class="default-box">
-                        <div class="login-icon my-2">
+                        {* <div class="login-icon my-2">
                             <img src="{$Path}img/{$LogoUrl}?{$Version}" alt="{$Title}" class="mx-auto d-block w-50">
-                        </div>
+                        </div> *}
 
                         {if $ShowLoginError}
                             <div id="loginError" class="alert alert-danger">
