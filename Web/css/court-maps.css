@@ -1,3 +1,10 @@
+/* public/css/court-maps.css */
+
+:root {
+    --court-green: #0B3C0D;
+    --bg-red: #7A0000;
+    --court-line: #ffffff;
+}
 
 /* Container frame that locks the map size */
 .blueprint-wrapper {
@@ -14,7 +21,7 @@
 .blueprint-image {
     display: block;
     width: 100%;
-    max-width: 650px; /* Adjust based on your canvas image export size */
+    max-width: 650px;
     height: auto;
     user-select: none;
     -webkit-user-select: none;
@@ -23,7 +30,7 @@
 /* The invisible/semi-transparent court button overlay */
 .map-court-overlay {
     position: absolute;
-    background-color: rgba(30, 136, 229, 0.0); /* Completely transparent by default */
+    background-color: rgba(30, 136, 229, 0.0);
     border: 2px dashed transparent;
     cursor: pointer;
     box-sizing: border-box;
@@ -32,13 +39,30 @@
 
 /* Subtle feedback when hovering over a physical court on the map image */
 .map-court-overlay:hover {
-    background-color: rgba(255, 255, 255, 0.25); /* Translucent white shine */
+    background-color: rgba(255, 255, 255, 0.25);
     border-color: #ffffff;
 }
 
-/* Master JavaScript active selection state ring */
+/* Master active selection state ring */
 .map-court-overlay.active-selection {
-    background-color: rgba(30, 136, 229, 0.3) !important; /* Translucent blue fill */
-    border: 3px solid #1E88E5 !important;                /* Crisp blue boundary ring */
+    background-color: rgba(30, 136, 229, 0.3) !important;
+    border: 3px solid #1E88E5 !important;
     box-shadow: 0 0 15px rgba(30, 136, 229, 0.6);
+}
+
+/* Local styles for scalable overlay labels */
+.map-court-overlay { position: absolute; }
+.map-court-overlay .court-label {
+     position: absolute;
+     left: 0; top: 0; right: 0; bottom: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     pointer-events: none;
+     font-weight: 700;
+     color: #fff;
+     text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+     /* scale with viewport but remain readable; clamped to reasonable sizes */
+     font-size: clamp(10px, 2.2vmin, 22px);
+     white-space: nowrap;
 }

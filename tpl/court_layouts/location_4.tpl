@@ -8,27 +8,34 @@
         <img src="img/testcourt.png" alt="Venue Layout" class="blueprint-image">
 
         <div class="map-court-overlay dynamic-court-btn"
-             data-court-id="1" 
+             data-court-id="1"
+             data-resource-id="1"
+             data-resource-name="Court 1"
              style="
                 top: 13.5%;
                 left: 8.5%;
                 width: 33.5%;
                 height: 74%;">
+            <span class="court-label">Court 1</span>
         </div>
 
         <div class="map-court-overlay dynamic-court-btn" 
-             data-court-id="2" 
+             data-court-id="2"
+             data-resource-id="2"
+             data-resource-name="Court 2"
              style="
                 top: 13.5%;
                 left: 59%; 
                 width: 33.5%;
                 height: 74%;">
+            <span class="court-label">Court 2</span>
         </div>
 
-        {* <div class="map-court-overlay dynamic-court-btn" 
+        <div class="map-court-overlay dynamic-court-btn" 
              data-court-id="3" 
              style="top: 65%; left: 10%; width: 50%; height: 25%;">
-        </div> *}
+            <span class="court-label">Court 3</span>
+        </div>
 
     </div>
 </div>

@@ -209,6 +209,16 @@
 
                 </div>
 
+                <div class="reservationResources col-12 col-sm-6 py-2 border-bottom" id="reservation-resources">
+                    <div class="d-flex align-items-center gap-2">
+                        <label class="fw-bold mb-0">{translate key="Resources"}</label>
+                        {if $ShowAdditionalResources}
+                        <a id="btnAddResources" href="#" class="link-primary" data-bs-toggle="modal"
+                            data-bs-target="#dialogResourceGroups">{translate key=Change} <span
+                                class="bi bi-plus-square-fill"></span></a>
+                        {/if}
+                    </div>
+                    
                 {* START Court modification testing *}
 
                 <div id="courtMapModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:99999; font-family:sans-serif;">
@@ -220,24 +230,24 @@
                         </div>
 
                         <div id="locationStepView">
-                            <p style="color:#666; font-size:15px; margin-bottom:20px;">Where are you playing today?</p>
+                            <p style="color:#666; font-size:15px; margin-bottom:20px;">Select a location to Play</p>
                             <div style="display:flex; flex-direction:column; gap:12px; max-width:400px; margin:0 auto 20px;">
                                 
                                 <button type="button" class="location-select-btn" data-location-filename="location_1" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
-                                    🏢 Location A (Quezon City) <span>➔</span>
+                                    🏢 Location A <span>➔</span>
                                 </button>
                                 
                                 <button type="button" class="location-select-btn" data-location-filename="location_2" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
-                                    🏢 Location B (Makati) <span>➔</span>
+                                    🏢 Location B <span>➔</span>
                                 </button>
 
                                 <button type="button" class="location-select-btn" data-location-filename="location_3" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
-                                    🏢 Location C (Makati) <span>➔</span>
+                                    🏢 Location C <span>➔</span>
                                 </button>
 
                                 
                                 <button type="button" class="location-select-btn" data-location-filename="location_4" style="padding:18px; border:2px solid #ccc; background:#fff; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; text-align:left; display:flex; justify-content:space-between; align-items:center;">
-                                    🏢 Location D (Makati) <span>➔</span>
+                                    🏢 Location D <span>➔</span>
                                 </button>
                                 
                             </div>
@@ -246,6 +256,7 @@
                         <div id="courtStepView" style="display:none;">
                             
                             <div id="courtLayoutsContainer">
+                            <p style="color:#666; font-size:14px; margin-bottom:12px;">Click one or more courts to book. selected courts are highlighted and will be added to your reservation.</p>
                                 
                                 <div id="layout_location_1" class="layout-file-wrapper" style="display:none;">
                                     {include file='court_layouts/location_1.tpl'}
@@ -277,8 +288,8 @@
                     </div>
                 </div>
                 
-                <button type="button" id="triggerCourtMapBtn" style="background:none; border:none; color:#dc3545; margin-top:12px; cursor:pointer; font-size:14px; font-weight:bold;">
-                    Court selection GUI (WIP)
+                <button type="button" id="triggerCourtMapBtn" class="link-primary">
+                    Change Court
                 </button>
 
                 {literal}
@@ -289,6 +300,12 @@
                 const closeBtn = document.getElementById('closeMapBtn');
                 const backBtn = document.getElementById('backToLocationsBtn');
                 const applyBtn = document.getElementById('confirmCourtSelectionBtn');
+                const getResourceInput = () => document.getElementById('primaryResourceId');
+                const getPrimaryResourceNameElem = () => document.querySelector('#primaryResourceContainer .resourceDetails');
+                const getAdditionalResourcesContainer = () => document.getElementById('additionalResources');
+                {/literal}
+                const additionalResourceInputName = "{FormKeys::ADDITIONAL_RESOURCES}[]";
+                {literal}
 
                 const headerTitle = document.getElementById('modalHeaderTitle');
 
@@ -296,13 +313,22 @@
                 const courtView = document.getElementById('courtStepView');
 
                 const locationButtons = document.querySelectorAll('.location-select-btn');
+                // Mapping resource IDs to names for quick lookup when courts are selected in the sub-layouts
+                const resourceNameMap = {};
+                {/literal}
+                {foreach from=$AvailableResources item=resource}
+                    resourceNameMap[{$resource->Id}] = "{$resource->Name|escape:'javascript'}";
+                {/foreach}
+                {literal}
+
+                const selectedCourtIds = new Set();
 
                 openBtn.addEventListener('click', function() {
                     modal.style.display = 'block';
                 });
                 closeBtn.addEventListener('click', function() {
                     modal.style.display = 'none';
-                    resetCourtSelection();
+                    resetCourtModalSelection();
                 });
 
                 function resetCourtModalSelection() {
@@ -310,30 +336,23 @@
                         c.style.boxShadow = 'none';
                         c.style.transform = 'scale(1)';
                     });
-                    chosenCourtId = "";
+                    selectedCourtIds.clear();
                     courtView.style.display = 'none';
                     locationView.style.display = 'block';
+                    applyBtn.style.display = 'none';
                 }
 
                function showLocationStep() {
-                    resetCourtModalSelection();
-                    chosenCourtId = "";
                     locationView.style.display = 'block';
                     courtView.style.display = 'none';
-                    applyBtn.style.display = 'none';
-                    headerTitle.innerText = "📍 Choose Location";
-                    
-                    // Clear active court selections across all sub-files
-                    document.querySelectorAll('.dynamic-court-btn').forEach(c => {
-                        c.style.borderColor = '';
-                        c.style.transform = 'scale(1)';
-                    });
+                    applyBtn.style.display = selectedCourtIds.size > 0 ? 'inline-block' : 'none';
+                    headerTitle.innerText = '📍 Choose Location';
                 }
 
                 function showCourtMapStep(filename, locationName) {
                     locationView.style.display = 'none';
                     courtView.style.display = 'block';
-                    applyBtn.style.display = 'inline-block';
+                    applyBtn.style.display = selectedCourtIds.size > 0 ? 'inline-block' : 'none';
                     headerTitle.innerText = `🗺️ ${locationName} Layout`;
 
                     // Hide all layout container views first
@@ -364,52 +383,103 @@
                 document.addEventListener('click', function(e) {
                     const courtBtn = e.target.closest('.dynamic-court-btn');
                     if (courtBtn) {
-                        // Deselect other buttons across the entire layout container
-                        document.querySelectorAll('.dynamic-court-btn').forEach(c => {
-                            c.style.boxShadow = 'none';
-                            c.style.transform = 'scale(1)';
-                        });
+                        const resourceId = courtBtn.getAttribute('data-resource-id') || courtBtn.getAttribute('data-court-id');
+                        if (!resourceId) {
+                            return;
+                        }
 
-                        // Set highlight border states on current node target
-                        courtBtn.style.boxShadow = '0 0 0 4px #0056b3';
-                        courtBtn.style.transform = 'scale(1.02)';
-                        chosenCourtId = courtBtn.getAttribute('data-court-id');
+                        const isSelected = selectedCourtIds.has(resourceId);
+                        if (isSelected) {
+                            selectedCourtIds.delete(resourceId);
+                            courtBtn.style.boxShadow = 'none';
+                            courtBtn.style.transform = 'scale(1)';
+                        } else {
+                            selectedCourtIds.add(resourceId);
+                            courtBtn.style.boxShadow = '0 0 0 4px #0056b3';
+                            courtBtn.style.transform = 'scale(1.02)';
+                        }
+
+                        applyBtn.style.display = selectedCourtIds.size > 0 ? 'inline-block' : 'none';
                     }
                 });
 
-                // Submit selection back to database hook
+                function createResourceLabel(resourceId) {
+                    const resourceName = resourceNameMap[resourceId] || `Resource ${resourceId}`;
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'resourceName rounded-1 m-1 p-1 bg-secondary bg-opacity-10 text-secondary';
+                    const span = document.createElement('span');
+                    span.className = 'resourceDetails';
+                    span.dataset.resourceid = resourceId;
+                    span.textContent = resourceName;
+                    wrapper.appendChild(span);
+                    return wrapper;
+                }
+
+                function updateSelectedResources(primaryId, additionalIds) {
+                    const resourceInput = getResourceInput();
+                    const primaryResourceNameElem = getPrimaryResourceNameElem();
+                    const additionalResourcesContainer = getAdditionalResourcesContainer();
+
+                    if (resourceInput) {
+                        resourceInput.value = primaryId;
+                        resourceInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+
+                    if (primaryResourceNameElem) {
+                        primaryResourceNameElem.textContent = resourceNameMap[primaryId] || `Resource ${primaryId}`;
+                        primaryResourceNameElem.setAttribute('data-resourceid', primaryId);
+                    }
+
+                    if (additionalResourcesContainer) {
+                        additionalResourcesContainer.innerHTML = '';
+                        additionalIds.forEach(id => {
+                            const hiddenInput = document.createElement('input');
+                            hiddenInput.type = 'hidden';
+                            hiddenInput.className = 'resourceId';
+                            hiddenInput.name = additionalResourceInputName;
+                            hiddenInput.value = id;
+                            additionalResourcesContainer.appendChild(hiddenInput);
+
+                            additionalResourcesContainer.appendChild(createResourceLabel(id));
+                        });
+                    }
+                }
+
+                function updatePrimaryResourceDisplay(resourceId, resourceName) {
+                    const resourceInput = getResourceInput();
+                    const primaryResourceNameElem = getPrimaryResourceNameElem();
+
+                    if (resourceInput) {
+                        resourceInput.value = resourceId;
+                        resourceInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+
+                    if (primaryResourceNameElem) {
+                        primaryResourceNameElem.textContent = resourceName;
+                        primaryResourceNameElem.setAttribute('data-resourceid', resourceId);
+                    }
+                }
+
+                // Submit selection back to reservation form
                 if (applyBtn) {
                     applyBtn.addEventListener('click', function() {
-                        if (!chosenCourtId) {
-                            alert("Please click an available court canvas option first.");
+                        if (selectedCourtIds.size === 0) {
+                            alert('Please select at least one court option first.');
                             return;
                         }
-                        
-                        const nativeDropdown = document.getElementById('courtSelectDropdownId');
-                        if (nativeDropdown) {
-                            nativeDropdown.value = chosenCourtId;
-                            nativeDropdown.dispatchEvent(new Event('change'));
-                        }
 
+                        const selectedIds = Array.from(selectedCourtIds);
+                        const primaryId = selectedIds[0];
+                        const additionalIds = selectedIds.slice(1);
+                        updateSelectedResources(primaryId, additionalIds);
                         modal.style.display = 'none';
                     });
-    }
+                }
 
                 </script>
                 {/literal}
 
                 {* ENDS court modification testing  here *}
-
-
-                <div class="reservationResources col-12 col-sm-6 py-2 border-bottom" id="reservation-resources">
-                    <div class="d-flex align-items-center gap-2">
-                        <label class="fw-bold mb-0">{translate key="Resources"}</label>
-                        {if $ShowAdditionalResources}
-                        <a id="btnAddResources" href="#" class="link-primary" data-bs-toggle="modal"
-                            data-bs-target="#dialogResourceGroups">{translate key=Change} <span
-                                class="bi bi-plus-square-fill"></span></a>
-                        {/if}
-                    </div>
 
                     <div class="d-inline-block">
                         <div id="primaryResourceContainer">
