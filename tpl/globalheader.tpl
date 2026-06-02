@@ -2,6 +2,12 @@
 <html lang="{$HtmlLang}" dir="{$HtmlTextDirection}">
 
 <head>
+
+    {* PWA Service Worker *}
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#7A0000">
+    {* PWA End *}
+
     <title>{if isset($TitleKey) && $TitleKey neq ''}{translate key=$TitleKey args=$TitleArgs}{else}{$Title}{/if}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$Charset}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -544,5 +550,14 @@
             })();
         </script> *}
         </div>
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('PWA Service Worker registered successfully!', reg.scope))
+            .catch(err => console.log('Service Worker registration failed:', err));
+    });
+}
+</script>
 <div id="main" class="container-fluid my-3" role="main">
 

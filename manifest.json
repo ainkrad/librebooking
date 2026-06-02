@@ -1,0 +1,21 @@
+{
+  "short_name": "CourtBook",
+  "name": "Picklebball Reservation",
+  "icons": [
+    {
+      "src": "img/table-tall.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/table-tall.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.php",
+  "background_color": "#7A0000",
+  "theme_color": "#7A0000",
+  "display": "standalone",
+  "orientation": "portrait"
+}
